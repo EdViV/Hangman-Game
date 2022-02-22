@@ -12,7 +12,7 @@ RULES FOR THE PROJECT:
   3.-Improve the game from what was shown in the course.
 
 HOW WILL I IMPROVE THE GAME?:
-  1.-A file called "english-data.txt" was created for people who find the repository in GitHub.
+  1.-A file called "english-data.txt" was created for english speakers.
   2.- A points system will be integrated into the game.
   3.-The hangman will appear with every failed attempt.
   4.-A friendly interface will be developed.
