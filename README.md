@@ -15,5 +15,6 @@ HOW WILL I IMPROVE THE GAME?:
 
 I thank you for taking the time to look at the project!
 If you have any comments or advice please contact me :)
+LinkedIn: https://www.linkedin.com/in/edgarvv/
 
 E.V.
