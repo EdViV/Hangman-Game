@@ -25,11 +25,13 @@ def game (option):
     generated_word = word_generation(option)
 
     for letter in generated_word:
-        check[letter] = letter
-        guess[letter] = "_"
+        if letter != "\n":
+            guess.append("_")
+            check.append(letter)
 
     print(check)
     print(guess)
+
 
 def run():
     option = int(input("""Choose a language:
