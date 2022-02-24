@@ -2,6 +2,9 @@ import os
 import random
 
 
+ALPHA = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+
+
 def word_generation(language):
     if language == 1:
         with open("./data.txt","r",encoding="utf-8") as f:
@@ -20,17 +23,23 @@ def word_generation(language):
 
 
 def game (option):
-    guess = []
-    check = []
     generated_word = word_generation(option)
 
-    for letter in generated_word:
-        if letter != "\n":
-            guess.append("_")
-            check.append(letter)
+    word_guess = ["_" for letter in generated_word if letter != "\n"]
+    word_reference = [letter for letter in generated_word                 if letter != "\n"]
 
-    print(check)
-    print(guess)
+    print(word_reference)
+    print(word_guess)
+
+    while word_guess != word_reference:
+        response = input("Guess a letter: ")
+
+        for i in range(len(word_reference)):
+            if response == word_reference[i]:
+                word_guess[i] = response
+
+        print(word_reference)
+        print(word_guess)
 
 
 def run():
@@ -39,7 +48,6 @@ def run():
     2.- English"""))
 
     game(option)
-
 
 if __name__ == '__main__':
     run()
