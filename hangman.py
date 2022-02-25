@@ -23,29 +23,48 @@ def word_generation(language):
 
 
 def game (option):
+    os.system('cls' if os.name == 'nt' else 'clear')
+
     generated_word = word_generation(option)
+    attempts = 0
+    tries = "6"
 
     word_guess = ["_" for letter in generated_word if letter != "\n"]
     word_reference = [letter for letter in generated_word                 if letter != "\n"]
 
-    print(word_reference)
-    print(word_guess)
 
-    while word_guess != word_reference:
+    while word_guess != word_reference and attempts < 6:
+        x = "".join(word_guess)
+        print(x + "                       You have " + tries + " attempts left")
+        print("\n")
         response = input("Guess a letter: ")
+
+        if response not in word_reference:
+            attempts += 1
+            tries =str(6 - attempts)
 
         for i in range(len(word_reference)):
             if response == word_reference[i]:
                 word_guess[i] = response
 
-        print(word_reference)
-        print(word_guess)
+        os.system('cls' if os.name == 'nt' else 'clear')
+
+    x = "".join(word_guess)
+
+    if word_guess == word_reference:
+        print ("You found the word: " + x )
+        print("YOU WIN!!!")
+    
+    if attempts == 6:
+        solution = "".join(generated_word)
+        print("The word was: " + solution )
 
 
 def run():
-    option = int(input("""Choose a language:
-    1.- Español
-    2.- English"""))
+    option = int(input("""1.- Español
+2.- English
+    
+Escoge un Lenguaje || Choose a Language: """))
 
     game(option)
 
