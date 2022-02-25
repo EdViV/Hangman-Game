@@ -95,9 +95,8 @@ tool
 letters
 chocolate
 glasses
-printing machine
+printer
 candies
-living room
 lights
 anguish
 shoe
@@ -134,7 +133,7 @@ key
 humidity
 gun
 Department
-cell phone
+cellphone
 sadness
 hippopotamus
 sofa
