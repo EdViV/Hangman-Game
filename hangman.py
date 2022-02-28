@@ -22,6 +22,72 @@ def word_generation(language):
     return selected_word
 
 
+def hanging_man(trie):
+
+    if trie == 0:
+        print("""  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========""")
+
+    if trie == 1:
+        print("""  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========""")
+
+    if trie == 2:
+         print("""  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========""")
+
+
+    if trie == 3:
+        print("""  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========""")
+
+    if trie == 4:
+        print("""  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========""")
+
+    if trie == 5:
+        print("""  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========""")
+
+    if trie == 6:
+        print("""  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========""")
+
 def game (option):
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -35,8 +101,12 @@ def game (option):
 
     while word_guess != word_reference and attempts < 6:
         x = "".join(word_guess)
+
+        hanging_man(attempts)
+
         print(x + "                       You have " + tries + " attempts left")
         print("\n")
+        
         response = input("Guess a letter: ")
 
         if response not in word_reference:
@@ -56,6 +126,7 @@ def game (option):
         print("YOU WIN!!!")
     
     if attempts == 6:
+        hanging_man(attempts)
         solution = "".join(generated_word)
         print("The word was: " + solution )
 
