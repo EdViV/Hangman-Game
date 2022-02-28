@@ -94,6 +94,7 @@ def game (option):
     generated_word = word_generation(option)
     attempts = 0
     tries = "6"
+    cont = ""
 
     word_guess = ["_" for letter in generated_word if letter != "\n"]
     word_reference = [letter for letter in generated_word                 if letter != "\n"]
@@ -106,7 +107,7 @@ def game (option):
 
         print(x + "                       You have " + tries + " attempts left")
         print("\n")
-        
+
         response = input("Guess a letter: ")
 
         if response not in word_reference:
@@ -130,14 +131,28 @@ def game (option):
         solution = "".join(generated_word)
         print("The word was: " + solution )
 
+    cont = input("Do you want to play again? (y/n): ")
+
+    if cont == "n":
+        exit()
+
 
 def run():
-    option = int(input("""1.- Español
+    while True:
+        os.system('cls' if os.name == 'nt' else 'clear')
+
+        print("""██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ██╗███╗   ██╗ ██████╗     ███╗   ███╗ █████╗ ███╗   ██╗    
+██║  ██║██╔══██╗████╗  ██║██╔════╝ ██║████╗  ██║██╔════╝     ████╗ ████║██╔══██╗████╗  ██║    
+███████║███████║██╔██╗ ██║██║  ███╗██║██╔██╗ ██║██║  ███╗    ██╔████╔██║███████║██╔██╗ ██║    
+██╔══██║██╔══██║██║╚██╗██║██║   ██║██║██║╚██╗██║██║   ██║    ██║╚██╔╝██║██╔══██║██║╚██╗██║    
+██║  ██║██║  ██║██║ ╚████║╚██████╔╝██║██║ ╚████║╚██████╔╝    ██║ ╚═╝ ██║██║  ██║██║ ╚████║    
+╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝     ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝    
+                                                                                             """)
+        option = int(input("""1.- Español
 2.- English
     
 Escoge un Lenguaje || Choose a Language: """))
-
-    game(option)
+        game(option)
 
 if __name__ == '__main__':
     run()
