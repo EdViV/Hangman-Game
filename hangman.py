@@ -105,7 +105,7 @@ def game_sp(option):
 
     word_guess = ["_" for letter in generated_word if letter != "\n"]
 
-    word_reference = [letter for letter in generated_word if letter != "\n"]
+    word_reference = [letter.upper() for letter in generated_word if letter != "\n"]
 
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -124,18 +124,18 @@ def game_sp(option):
             if str.isnumeric(response) == True:
                 raise TypeError
 
-            if response not in word_reference:
+            if response.upper() not in word_reference:
                 attempts += 1
                 trys =str(6 - attempts)
-                letters_tried.append(response)
+                letters_tried.append(response.upper())
                 letters_tried.sort()
 
             for i in range(len(word_reference)):
-                if response == word_reference[i]:
-                    word_guess[i] = response
+                if response.upper() == word_reference[i]:
+                    word_guess[i] = response.upper()
 
                     if response not in letters_tried:
-                        letters_tried.append(response)
+                        letters_tried.append(response.upper())
                         letters_tried.sort()
 
         except TypeError:
@@ -156,7 +156,10 @@ def game_sp(option):
 
     cont = input("Quieres jugar de nuevo? (s/n): ")
 
-    if cont == "n":
+    if cont.upper() == "S":
+        return True
+
+    if cont.upper() == "N":
         return False
 
 
@@ -169,7 +172,7 @@ def game_en(option):
 
     word_guess = ["_" for letter in generated_word if letter != "\n"]
 
-    word_reference = [letter for letter in generated_word if letter != "\n"]
+    word_reference = [letter.upper() for letter in generated_word if letter != "\n"]
 
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -188,18 +191,18 @@ def game_en(option):
             if str.isnumeric(response) == True:
                 raise TypeError
 
-            if response not in word_reference:
+            if response.upper() not in word_reference:
                 attempts += 1
                 tries =str(6 - attempts)
-                letters_tried.append(response)
+                letters_tried.append(response.upper())
                 letters_tried.sort()
 
             for i in range(len(word_reference)):
-                if response == word_reference[i]:
-                    word_guess[i] = response
+                if response.upper() == word_reference[i]:
+                    word_guess[i] = response.upper()
 
-                    if response not in letters_tried:
-                        letters_tried.append(response)
+                    if response.upper() not in letters_tried:
+                        letters_tried.append(response.upper())
                         letters_tried.sort()
 
         except TypeError:
@@ -220,7 +223,10 @@ def game_en(option):
 
     cont = input("Do you want to play again? (y/n): ")
 
-    if cont == "n":
+    if cont.upper() == "Y":
+        return True
+        
+    if cont.upper() == "N":
         return False
 
 
